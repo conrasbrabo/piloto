@@ -30,8 +30,8 @@ p{margin:0}
 h1,h2{font-family:var(--display);margin:0;line-height:1.05;text-wrap:balance}
 h1{font-size:30px;font-weight:700}
 h2{font-size:22px;font-weight:700}
-.quem{display:flex;gap:12px;align-items:center}
-.quem .av{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;background:var(--foto)}
+.quem{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+.quem .av{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none;background:var(--foto)}
 .quem small{display:block;color:var(--muted);font-size:14px}
 .video{position:relative;border-radius:14px;overflow:hidden;background:var(--foto)}
 .video video{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
@@ -46,6 +46,9 @@ h2{font-size:22px;font-weight:700}
 .links small{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
 .links .seta{font-family:var(--display);font-size:24px;color:var(--terra)}
 .links a.principal b{color:var(--terra)}
+.links .guia{display:block;padding:16px 2px;border-bottom:1px solid var(--line)}
+.links .guia b{display:block;font-family:var(--display);font-size:22px;font-weight:700;line-height:1.1}
+.links .guia small{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
 .links a[aria-disabled="true"]{cursor:default}
 .links a[aria-disabled="true"] .seta{color:var(--muted)}
 a:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
@@ -89,7 +92,7 @@ ol.erros b{font-weight:600}
   <nav class="links" aria-label="Links">
     <a class="principal js-form" href="#" aria-disabled="true"><span><b>lista de peças grátis</b><small class="js-nota">abre hoje, na live das 18:30</small></span><span class="seta" aria-hidden="true">›</span></a>
     <a href="https://chat.whatsapp.com/Fv5jC6g8JCO4P96g0zLjee" target="_blank" rel="noopener"><span><b>grupo do WhatsApp</b><small>pra falar do piloto e saber das novidades primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
-    <a class="js-form" href="#" aria-disabled="true"><span><b>o guia completo de como eu montei</b><small>tô terminando. quem tá na lista fica sabendo primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <div class="guia"><b>o guia completo de como eu montei: em breve</b><small>ainda tô terminando. quem pegou a lista grátis ou tá no grupo do WhatsApp fica sabendo primeiro quando sair</small></div>
   </nav>
 
   <div class="numeros" aria-label="Números do meu piloto">
