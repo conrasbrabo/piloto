@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Piloto no Trator</title>
+<meta name="description" content="O piloto automático que eu montei no meu trator: a lista de peças grátis, a montagem em fotos e o guia completo">
+<meta property="og:title" content="Piloto automático no trator, montado por mim">
+<meta property="og:description" content="A lista de peças grátis, a montagem em fotos e o guia completo">
+<meta property="og:image" content="https://conrasbrabo.github.io/piloto/midia/supervisiono_a.jpg">
+<meta property="og:type" content="website">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: um perfil, não uma página de oferta. Vídeo dele no topo, links simples, a montagem contada em fotos na ordem em que aconteceu */
+:root{
+  --bg:#FFFFFF; --fg:#16140F; --muted:#6B665C; --line:#E4E0D6; --terra:#8A3A1E; --terra-fg:#FFFFFF; --foto:#EDEAE2; --live:#E9B949;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12110E; --fg:#EFEBE3; --muted:#A39D91; --line:#2A2722; --terra:#D9774F; --terra-fg:#12110E; --foto:#1E1C18; --live:#E9B949; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12110E; --fg:#EFEBE3; --muted:#A39D91; --line:#2A2722; --terra:#D9774F; --terra-fg:#12110E; --foto:#1E1C18; --live:#E9B949; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.5 var(--body)}
+.col{max-width:480px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{display:grid;gap:28px;padding-block:18px 56px}
+p{margin:0}
+h1,h2{font-family:var(--display);margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:30px;font-weight:700}
+h2{font-size:22px;font-weight:700}
+.quem{display:flex;gap:12px;align-items:center}
+.quem .av{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;background:var(--foto)}
+.quem small{display:block;color:var(--muted);font-size:14px}
+.video{position:relative;border-radius:14px;overflow:hidden;background:var(--foto)}
+.video video{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.legenda{font-size:16px;color:var(--fg)}
+.legenda span{color:var(--muted)}
+.ao-vivo{display:grid;gap:2px;border-left:5px solid var(--live);padding:10px 14px;background:var(--foto);border-radius:0 10px 10px 0}
+.ao-vivo b{font-family:var(--display);font-size:21px;font-weight:700;line-height:1.1}
+.ao-vivo small{color:var(--muted);font-size:14.5px}
+.links{display:grid;border-top:1px solid var(--line)}
+.links > a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:16px 2px;border-bottom:1px solid var(--line);color:var(--fg);text-decoration:none}
+.links b{display:block;font-family:var(--display);font-size:22px;font-weight:700;line-height:1.1}
+.links small{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.links .seta{font-family:var(--display);font-size:24px;color:var(--terra)}
+.links a.principal b{color:var(--terra)}
+.links a[aria-disabled="true"]{cursor:default}
+.links a[aria-disabled="true"] .seta{color:var(--muted)}
+a:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+.trilha{display:grid;gap:10px}
+.trilha .rolo{display:grid;grid-auto-flow:column;grid-auto-columns:62%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.trilha figure{margin:0;scroll-snap-align:start;display:grid;gap:6px;min-width:0}
+.trilha img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;background:var(--foto);max-width:100%}
+.trilha figcaption{font-size:14.5px;line-height:1.35}
+.trilha figcaption span{display:block;color:var(--muted);font-size:13px}
+.dica{font-size:13.5px;color:var(--muted)}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.par video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;background:var(--foto);max-width:100%}
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.numeros div{border:1px solid var(--line);border-radius:10px;padding:10px 6px;min-width:0}
+.numeros strong{display:block;font-family:var(--display);font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+.numeros small{color:var(--muted);font-size:12.5px;line-height:1.3;display:block}
+ol.erros{margin:0;padding-left:20px;display:grid;gap:10px}
+ol.erros b{font-weight:600}
+.nota{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;display:grid;gap:4px}
+@media (prefers-reduced-motion:reduce){video{animation:none}}
+</style>
+
+</head>
+<body>
+<div class="col">
+<main>
+  <div class="quem">
+    <img class="av" src="midia/trator_sozinho_tablet_no_capo_600.jpg" alt="">
+    <div><h1>piloto automático no trator, montado por mim</h1><small>produtor em Goiás · AgOpenGPS · protótipo em teste</small></div>
+  </div>
+
+  <div class="par">
+    <video src="midia/supervisiono_a.mp4" poster="midia/supervisiono_a.jpg" autoplay muted loop playsinline aria-label="Os pés dele apoiados no trator enquanto o piloto dirige e faz a curva na cabeceira sozinho"></video>
+    <video src="midia/supervisiono_b.mp4" poster="midia/supervisiono_b.jpg" autoplay muted loop playsinline aria-label="O pneu do trator andando em cima do rastro da passada anterior"></video>
+  </div>
+  <p class="legenda">o piloto dirige e eu só supervisiono 😂 ele faz a curva na cabeceira sozinho e volta certinho no rastro. peça comprada na internet e programa gratuito</p>
+
+  <div class="ao-vivo"><b>a live do fechamento do plantio tá no meu perfil</b><small>como eu montei, o que deu errado e quanto custou de verdade, em 1 hora de conversa</small></div>
+
+  <nav class="links" aria-label="Links">
+    <a class="principal js-form" href="#" aria-disabled="true"><span><b>lista de peças grátis</b><small class="js-nota">abre hoje, na live das 18:30</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <a href="https://chat.whatsapp.com/Fv5jC6g8JCO4P96g0zLjee" target="_blank" rel="noopener"><span><b>grupo do WhatsApp</b><small>pra falar do piloto e saber das novidades primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <a class="js-form" href="#" aria-disabled="true"><span><b>o guia completo de como eu montei</b><small>tô terminando. quem tá na lista fica sabendo primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
+  </nav>
+
+  <div class="numeros" aria-label="Números do meu piloto">
+    <div><strong>4,3 cm</strong><small>no melhor dia, na tela, nas retas</small></div>
+    <div><strong>~R$ 6.700</strong><small>de peça, dividindo as placas</small></div>
+    <div><strong>R$ 33–50 mil</strong><small>um kit de marca, nas lojas</small></div>
+  </div>
+
+  <section class="trilha" aria-labelledby="t-como">
+    <h2 id="t-como">como eu montei</h2>
+    <div class="rolo">
+      <figure><img src="midia/placa_aio_na_bancada_600.jpg" alt="A placa AiO com a Teensy, ligada na bancada" loading="lazy"><figcaption>a placa na bancada<span>primeiro liga tudo aqui, peça por peça</span></figcaption></figure>
+      <figure><img src="midia/placa_aio_na_caixa_do_trator_600.jpg" alt="A placa aberta dentro da caixa, no trator" loading="lazy"><figcaption>na caixa, no trator<span>a placa junta GPS, motor e sensores</span></figcaption></figure>
+      <figure><img src="midia/motor_com_suporte_3d_600.jpg" alt="O motor com o suporte impresso em 3D" loading="lazy"><figcaption>o motor com o suporte<span>impresso em 3D, aqui mesmo</span></figcaption></figure>
+      <figure><img src="midia/motor_e_engrenagem_no_volante_600.jpg" alt="Mãos montando o motor e a engrenagem no volante" loading="lazy"><figcaption>a engrenagem no volante<span>é o motor que gira a direção</span></figcaption></figure>
+      <figure><img src="midia/antena_gps_no_teto_600.jpg" alt="A antena do GPS no teto do trator" loading="lazy"><figcaption>a antena no teto<span>o GPS que dá a posição</span></figcaption></figure>
+      <figure><img src="midia/base_rtk_600.jpg" alt="A antena da base RTK em cima da caixa, com os cabos" loading="lazy"><figcaption>a base RTK<span>é ela que corrige o GPS pra centímetros</span></figcaption></figure>
+      <figure><img src="midia/tela_agopengps_600.jpg" alt="O tablet com o AgOpenGPS mostrando a linha" loading="lazy"><figcaption>o tablet no capô<span>AgOpenGPS, programa gratuito</span></figcaption></figure>
+      <figure><img src="midia/soja_nascendo_em_linha_600.jpg" alt="A soja nascendo em linha no talhão" loading="lazy"><figcaption>e o resultado<span>soja nascendo na linha</span></figcaption></figure>
+    </div>
+    <p class="dica">arrasta pro lado</p>
+  </section>
+
+  <section style="display:grid;gap:10px" aria-labelledby="t-poste">
+    <h2 id="t-poste">o primeiro desvio de poste com o piloto</h2>
+    <div class="par">
+      <video src="midia/desvio_do_poste.mp4" poster="midia/por_do_sol_na_cabine_600.jpg" autoplay muted loop playsinline aria-label="O trator passando rente ao poste, de noite, e a tela com a linha fazendo a curva"></video>
+      <video src="midia/trator_na_linha.mp4" poster="midia/trator_na_linha_600.jpg" autoplay muted loop playsinline aria-label="O pneu do trator andando em cima do rastro"></video>
+    </div>
+    <p class="legenda">plantando de noite, a linha contorna o poste sozinha</p>
+  </section>
+
+  <section style="display:grid;gap:10px" aria-labelledby="t-erros">
+    <h2 id="t-erros">3 erros que eu vejo muita gente cometer</h2>
+    <ol class="erros">
+      <li><b>Teensy sem Ethernet.</b> custa um pouco menos e não serve</li>
+      <li><b>a placa Micro no lugar da Standard sem saber.</b> as duas funcionam, mas as peças e o GPS são diferentes</li>
+      <li><b>conversor "10 A" qualquer.</b> tem de 150 W e de 240 W com o mesmo nome, o motor pede o de 240 W</li>
+    </ol>
+  </section>
+
+  <div class="nota">
+    <span>fiz essa lista com muito carinho. os links das peças são de afiliado: se vc comprar por eles, vc não paga nada a mais por isso, além de fazer uma 🐮 feliz, ajuda um pequeno produtor 🇧🇷</span>
+    <span>a precisão é a que eu medi na tela do meu trator, não é promessa para o seu</span>
+  </div>
+</main>
+</div>
+
+<script>
+// Quando o formulário do Google estiver publicado, cole o link dele aqui
+var LINK_DO_FORMULARIO = "https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform";
+(function(){
+  var links=document.querySelectorAll('.js-form'), nota=document.querySelector('.js-nota');
+  for(var i=0;i<links.length;i++){
+    var a=links[i];
+    if(LINK_DO_FORMULARIO){a.href=LINK_DO_FORMULARIO;a.target="_blank";a.rel="noopener";a.removeAttribute('aria-disabled');}
+    else{a.addEventListener('click',function(e){e.preventDefault();});}
+  }
+  if(LINK_DO_FORMULARIO&&nota){nota.textContent="você preenche nome e e-mail e a lista aparece na hora";}
+})();
+</script>
+
+</body>
+</html>
