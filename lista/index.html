@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lista de peças grátis</title>
+<meta name="description" content="A lista de peças do piloto automático que eu montei no meu trator: preenche o formulário e o link da lista aparece na hora">
+<meta property="og:title" content="Lista de peças do piloto, grátis">
+<meta property="og:description" content="O que eu usei no trator, onde comprar e quanto tá hoje">
+<meta property="og:image" content="https://conrasbrabo.github.io/piloto/midia/supervisiono_a.jpg">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Barlow+Condensed:wght@700&display=swap">
+<style>
+/* Uma página só com o formulário: o rosto dele, uma linha e o formulário do Google dentro, sem mais nada */
+:root{
+  --bg:#FFFFFF; --fg:#16140F; --muted:#6B665C; --line:#E4E0D6; --terra:#8A3A1E; --foto:#EDEAE2;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12110E; --fg:#EFEBE3; --muted:#A39D91; --line:#2A2722; --terra:#D9774F; --foto:#1E1C18; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12110E; --fg:#EFEBE3; --muted:#A39D91; --line:#2A2722; --terra:#D9774F; --foto:#1E1C18; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.5 var(--body);-webkit-text-size-adjust:100%}
+.col{max-width:640px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.quem{display:flex;gap:12px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.quem img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;background:var(--foto)}
+h1{font-family:var(--display);font-size:26px;font-weight:700;line-height:1.05;margin:0}
+.quem small{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.form{display:block;width:100%;height:1750px;border:0;margin-top:8px;background:var(--bg)}
+.voltar{display:inline-block;margin-top:12px;color:var(--muted);font-size:14.5px;text-decoration:none}
+.voltar:hover,.voltar:focus-visible{color:var(--terra)}
+a:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="col">
+  <header class="quem">
+    <img src="../midia/conrado_v2.jpg" alt="Conrado">
+    <div><h1>lista de peças grátis</h1><small>preenche aqui e o link da lista aparece na hora. a cidade e o trator me ajudam a entender a logística e a ajudar com o maquinário</small></div>
+  </header>
+  <iframe class="form" id="form" title="Formulário da lista de peças"
+    src="https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform?embedded=true">Carregando…</iframe>
+  <a class="voltar" href="../">‹ voltar</a>
+</div>
+<script>
+// Os botões da página da bio mandam a escolha ("o que você quer fazer?") pelo endereço: ela vai junto para o formulário
+(function(){
+  var q=location.search.replace(/^\?/,'');
+  if(!q)return;
+  var f=document.getElementById('form');
+  f.src=f.src+'&usp=pp_url&'+q;
+})();
+</script>
+</body>
+</html>

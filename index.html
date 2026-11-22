@@ -92,15 +92,15 @@ ol.erros b{font-weight:600}
   <nav class="links" aria-label="Links">
     <a class="principal js-form" href="#" aria-disabled="true"><span><b>lista de peças grátis</b><small class="js-nota">abre hoje, na live das 18:30</small></span><span class="seta" aria-hidden="true">›</span></a>
     <a href="https://chat.whatsapp.com/Fv5jC6g8JCO4P96g0zLjee" target="_blank" rel="noopener"><span><b>grupo do WhatsApp</b><small>pra falar do piloto e saber das novidades primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform?usp=pp_url&entry.1619815781=Montar+o+meu+sozinho" target="_blank" rel="noopener"><span><b>quero montar o meu</b><small>deixa seu contato: você recebe a lista agora e eu aviso quando o guia sair</small></span><span class="seta" aria-hidden="true">›</span></a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform?usp=pp_url&entry.1619815781=Ter+um+piloto+montado+no+meu+trator" target="_blank" rel="noopener"><span><b>quero o piloto pronto no meu trator</b><small>deixa seu contato e o que você precisa: tô vendo como montar pra produtores</small></span><span class="seta" aria-hidden="true">›</span></a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform?usp=pp_url&entry.1619815781=Aprender+antes+de+montar" target="_blank" rel="noopener"><span><b>quero aprender a montar, com acompanhamento</b><small>deixa seu contato: quando abrir uma turma, você fica sabendo primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <a href="lista/?entry.1619815781=Montar+o+meu+sozinho"><span><b>quero montar o meu</b><small>deixa seu contato, a cidade e o trator: você recebe a lista agora e eu aviso quando o guia sair</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <a href="lista/?entry.1619815781=Ter+um+piloto+montado+no+meu+trator"><span><b>quero o piloto pronto no meu trator</b><small>deixa seu contato, a cidade e o trator: assim eu entendo a logística e vejo como ajudar com o maquinário</small></span><span class="seta" aria-hidden="true">›</span></a>
+    <a href="lista/?entry.1619815781=Aprender+antes+de+montar"><span><b>quero aprender a montar, com acompanhamento</b><small>deixa seu contato, a cidade e o trator: quando abrir uma turma, você fica sabendo primeiro</small></span><span class="seta" aria-hidden="true">›</span></a>
     <div class="guia"><b>o guia completo de como eu montei: em breve</b><small>ainda tô terminando. quem pegou a lista grátis ou tá no grupo do WhatsApp fica sabendo primeiro quando sair</small></div>
   </nav>
 
   <div class="numeros" aria-label="Números do meu piloto">
     <div><strong>4,3 cm</strong><small>no melhor dia, na tela, nas retas</small></div>
-    <div><strong>~R$ 6.700</strong><small>de peça, dividindo as placas</small></div>
+    <div><strong>~R$ 7.800</strong><small>de peça, dividindo as placas</small></div>
     <div><strong>R$ 33–50 mil</strong><small>um kit de marca, nas lojas</small></div>
   </div>
 
@@ -146,12 +146,12 @@ ol.erros b{font-weight:600}
 
 <script>
 // Quando o formulário do Google estiver publicado, cole o link dele aqui
-var LINK_DO_FORMULARIO = "https://docs.google.com/forms/d/e/1FAIpQLSc0fonCxhJabh_uQHTzL7Jb56VOS_TQoauaEiWmuIgp6Pt3Yg/viewform";
+var LINK_DO_FORMULARIO = "lista/";   // a página do formulário no site (22/11/2026); o do Google fica dentro dela
 (function(){
   var links=document.querySelectorAll('.js-form'), nota=document.querySelector('.js-nota');
   for(var i=0;i<links.length;i++){
     var a=links[i];
-    if(LINK_DO_FORMULARIO){a.href=LINK_DO_FORMULARIO;a.target="_blank";a.rel="noopener";a.removeAttribute('aria-disabled');}
+    if(LINK_DO_FORMULARIO){a.href=LINK_DO_FORMULARIO;a.removeAttribute('aria-disabled');}
     else{a.addEventListener('click',function(e){e.preventDefault();});}
   }
   if(LINK_DO_FORMULARIO&&nota){nota.textContent="você preenche nome e e-mail e a lista aparece na hora";}
