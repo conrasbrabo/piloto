@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lote da placa AiO</title>
+<meta name="description" content="Cotei a placa AiO v4.5 montada na JLCPCB: quanto sai cada placa em lote, já no Brasil">
+<meta property="og:title" content="Cotei a placa AiO montada. Dá pra juntar um lote?">
+<meta property="og:description" content="Quanto sai cada placa em lote, já no Brasil. É só a placa montada, sem os módulos">
+<meta property="og:image" content="https://conrasbrabo.github.io/piloto/aio/capa.jpg">
+<meta property="og:url" content="https://conrasbrabo.github.io/piloto/aio/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Curta, para o grupo: verde de máscara de solda e cobre no preço, como as versões anteriores. */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --ink:#17211c; --muted:#5a6a61; --line:#d6ded8;
+  --accent:#1c6a45; --accent-soft:#e3efe8; --copper:#a85d1c;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1512; --surface:#172019; --ink:#e4ebe6; --muted:#9caca2; --line:#2b3831;
+    --accent:#5cc08f; --accent-soft:#1d3127; --copper:#e39a5a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1512; --surface:#172019; --ink:#e4ebe6; --muted:#9caca2; --line:#2b3831;
+  --accent:#5cc08f; --accent-soft:#1d3127; --copper:#e39a5a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+.wrap{max-width:660px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:22px}
+h1{font-family:var(--display);font-size:clamp(30px,7vw,40px);line-height:1.1;font-weight:700;margin:0;text-wrap:balance}
+p{margin:0}
+b{font-weight:700}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+.fotos figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;gap:6px;min-width:0}
+.fotos img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;display:block;border-radius:6px;background:#fff}
+.fotos span{font-family:var(--display);font-weight:600;font-size:17px;text-align:center}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+caption{text-align:left;font-family:var(--display);font-weight:700;font-size:22px;padding-bottom:8px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:right}
+thead th{background:var(--accent-soft);font-family:var(--display);font-size:17px;font-weight:600}
+th:first-child{text-align:left}
+tbody th{font-family:var(--display);font-weight:600;white-space:nowrap}
+tbody td{font-family:var(--display);font-weight:700;font-size:22px;color:var(--copper);white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody tr:last-child>*{border-bottom:0}
+.miudo{font-size:15px;color:var(--muted)}
+a{color:var(--accent);font-weight:600;word-break:break-all}
+.escala{width:100%;max-width:440px;height:auto;display:block;justify-self:center}
+.escala rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.escala text{font-family:var(--display);font-size:26px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.escala text.mm{font-weight:600;fill:var(--copper)}
+@media (max-width:480px){ .fotos{grid-template-columns:1fr} .fotos img{aspect-ratio:auto} }
+@media (max-width:380px){ th,td{padding:9px 8px} tbody td{font-size:19px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Cotei a placa AiO montada. Dá pra juntar um lote?</h1>
+  <p>Cotei a placa AiO v4.5 montada na JLCPCB, a fábrica que o pessoal do AgOpenGPS usa, já com frete e imposto pra
+  chegar aqui. Por enquanto é só pra ver se dá lote, sem reserva e sem Pix.</p>
+
+  <div class="fotos">
+    <figure><img src="standard.jpg" alt="A placa Standard montada, com todas as barras de encaixe, no desenho da JLCPCB"><span>Standard</span></figure>
+    <figure><img src="micro.jpg" alt="A placa Micro montada, com todas as barras de encaixe, no desenho da JLCPCB"><span>Micro</span></figure>
+  </div>
+
+  <p>Uma coisa que muita gente confundiu: <b>o preço é só da placa.</b> Ela vem montada, com as pecinhas soldadas, mas
+  o Teensy, o GPS, o sensor de inclinação e o driver do motor não vêm. Esses você compra à parte e encaixa nos lugares
+  vazios que aparecem no desenho.</p>
+
+  <table>
+    <caption>Quanto sai cada placa, já no Brasil</caption>
+    <thead><tr><th>Lote</th><th>Standard</th><th>Micro</th></tr></thead>
+    <tbody>
+        <tr><th scope="row">5 placas</th><td>R$ 744,42</td><td>R$ 789,80</td></tr>
+        <tr><th scope="row">10 placas</th><td>R$ 588,62</td><td>R$ 622,12</td></tr>
+        <tr><th scope="row">15 placas</th><td>R$ 530,58</td><td>R$ 565,86</td></tr>
+        <tr><th scope="row">20 placas</th><td>R$ 495,91</td><td>R$ 524,33</td></tr>
+    </tbody>
+  </table>
+  <p class="miudo">Quanto maior o lote, mais barata fica cada uma. A conta é com ICMS de 17%, até o endereço de quem
+  importar. O frete até a sua casa é à parte.</p>
+
+  <p><b>Standard ou Micro?</b> No trator as duas fazem o mesmo trabalho. A diferença é mais o tamanho: a Standard tem
+  119 × 188 mm, é estreita e comprida; a Micro tem 160 × 110 mm, é mais larga e mais rasa.</p>
+  <svg class="escala" viewBox="0 0 440 316" role="img" aria-label="As duas placas desenhadas na mesma escala: a Standard com 119 por 188 milímetros e a Micro com 160 por 110 milímetros.">
+    <rect x="20" y="20" width="133" height="211" rx="4"/>
+    <rect x="200" y="108" width="179" height="123" rx="4"/>
+    <text x="86" y="268">Standard</text>
+    <text x="86" y="302" class="mm">119 × 188 mm</text>
+    <text x="290" y="268">Micro</text>
+    <text x="290" y="302" class="mm">160 × 110 mm</text>
+  </svg>
+  <p><b>E o GPS?</b> Na Standard encaixa o F9P grande, no formato de Arduino, como o simpleRTK2B. Na Micro encaixa um
+  F9P bem pequenininho, no formato XBee, como o simpleRTK2B Micro. Aquele F9P pequenininho e quadrado que o pessoal
+  mais olha não é esse: ele não encaixa em nenhuma das duas, vai ligado por fio. O UM982 também não encaixa, mas dá
+  pra fazer a ligação por fio, nas duas placas.</p>
+
+  <p>Vota na enquete do grupo dizendo qual placa você pegaria e quantas. Se quiser que eu te chame quando a cotação
+  fechar, deixa o contato aqui: <a href="https://forms.gle/hCPxTCFpszoSCeVs8">forms.gle/hCPxTCFpszoSCeVs8</a></p>
+
+  <p class="miudo"><a href="../">← Piloto no Trator: a lista de peças grátis e o grupo</a></p>
+
+  <p class="miudo">Cotação de 19/11/2026 no site da JLCPCB, conferida de novo em 24/11, com o dólar a R$ 5,918. Antes
+  de fechar o lote, eu faço a cotação de novo.</p>
+</div>
+</body>
+</html>
