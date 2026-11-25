@@ -34,6 +34,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
+[hidden]{display:none!important}
 img{max-width:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
 .wrap{max-width:660px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:22px}
@@ -60,6 +61,18 @@ a{color:var(--accent);font-weight:600;word-break:break-all}
 .escala text.mm{font-weight:600;fill:var(--copper)}
 @media (max-width:480px){ .fotos{grid-template-columns:1fr} .fotos img{aspect-ratio:auto} }
 @media (max-width:380px){ th,td{padding:9px 8px} tbody td{font-size:19px} }
+.lote{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.lote label{display:grid;gap:6px;font-weight:600}
+.lote input:not([type=radio]):not([type=checkbox]){font:inherit;font-weight:400;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+.lote fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
+.lote legend{font-weight:600;padding:0;margin-bottom:6px;width:100%}
+.lote label.op{display:flex;gap:8px;align-items:flex-start;font-weight:400}
+.lote label.op input{margin-top:5px;accent-color:var(--accent);flex:none}
+.lote .aceite{font-size:15px;color:var(--muted)}
+.lote button{font:inherit;font-weight:700;font-size:18px;padding:12px 16px;border:0;border-radius:8px;background:var(--accent);color:var(--surface);cursor:pointer}
+.lote button:disabled{opacity:.6}
+.erro{color:var(--copper);font-weight:600;margin:0}
+.ok{font-size:18px}
 </style>
 </head>
 <body>
@@ -105,8 +118,67 @@ a{color:var(--accent);font-weight:600;word-break:break-all}
   mais olha não é esse: ele não encaixa em nenhuma das duas, vai ligado por fio. O UM982 também não encaixa, mas dá
   pra fazer a ligação por fio, nas duas placas.</p>
 
-  <p>Vota na enquete do grupo dizendo qual placa você pegaria e quantas. Se quiser que eu te chame quando a cotação
-  fechar, deixa o contato aqui: <a href="https://forms.gle/hCPxTCFpszoSCeVs8">forms.gle/hCPxTCFpszoSCeVs8</a></p>
+  <p>Vota na enquete do grupo dizendo qual placa você pegaria e quantas. Se quiser comprar mesmo, deixa seu contato
+  aqui embaixo: quando a cotação fechar, eu te chamo no WhatsApp.</p>
+
+  <form id="lote" class="lote" novalidate>
+    <label>Seu nome<input name="entry.1402599901" autocomplete="name" required></label>
+    <label>Seu WhatsApp, com DDD<input name="entry.1288376991" type="tel" inputmode="tel" autocomplete="tel" placeholder="(62) 9 9999-9999" required></label>
+    <label>Sua cidade e estado<input name="entry.1009691121" autocomplete="address-level2" required></label>
+    <fieldset><legend>Qual placa?</legend>
+      <label class="op"><input type="radio" name="placa" value="Standard" required>Standard</label>
+      <label class="op"><input type="radio" name="placa" value="Micro">Micro</label>
+      <label class="op"><input type="radio" name="placa" value="Ainda não sei">Ainda não sei</label>
+    </fieldset>
+    <fieldset><legend>Quantas?</legend>
+      <label class="op"><input type="radio" name="entry.352218284" value="1" required>1</label>
+      <label class="op"><input type="radio" name="entry.352218284" value="2">2</label>
+      <label class="op"><input type="radio" name="entry.352218284" value="3 ou mais">3 ou mais</label>
+    </fieldset>
+    <fieldset><legend>Já tem o Teensy, o GPS, o sensor e o driver?</legend>
+      <label class="op"><input type="radio" name="entry.1028211171" value="Já tenho tudo" required>Já tenho tudo</label>
+      <label class="op"><input type="radio" name="entry.1028211171" value="Tenho uma parte">Tenho uma parte</label>
+      <label class="op"><input type="radio" name="entry.1028211171" value="Ainda não comprei nada">Ainda não comprei nada</label>
+    </fieldset>
+    <label class="op aceite"><input type="checkbox" name="entry.666319164" value="Autorizo o Conrado a me chamar no WhatsApp sobre a placa AiO. Sei que isto não é compra nem reserva" required>Autorizo o Conrado a me chamar no WhatsApp sobre a placa AiO. Sei que isto não é compra nem reserva</label>
+    <p class="erro" id="erro" hidden></p>
+    <button type="submit">Quero entrar no lote</button>
+  </form>
+  <p class="ok" id="ok" hidden><b>Valeu! Você tá na lista do lote 🤝🏼</b> Quando a cotação fechar, eu te chamo no WhatsApp.</p>
+
+  <script>
+  (function () {
+    var f = document.getElementById("lote"), erro = document.getElementById("erro"), ok = document.getElementById("ok");
+    var URL_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeoawHuXrMAqd1X2bkOnjDyCZ4rq4Osbd-tc7bUCC1C4GdcjQ/formResponse";
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!f.checkValidity()) {
+        erro.textContent = "Falta responder alguma pergunta ali em cima.";
+        erro.hidden = false;
+        var primeiro = f.querySelector(":invalid"); if (primeiro) primeiro.focus();
+        return;
+      }
+      erro.hidden = true;
+      var dados = new URLSearchParams();
+      ["entry.1402599901", "entry.1288376991", "entry.1009691121"].forEach(function (n) {
+        dados.append(n, f.elements[n].value.trim());
+      });
+      dados.append("entry.352218284", f.querySelector('[name="entry.352218284"]:checked').value);
+      dados.append("entry.1028211171", f.querySelector('[name="entry.1028211171"]:checked').value);
+      dados.append("entry.579655948", "Pronta, sem os componentes");
+      dados.append("entry.2144285393", "Pela página do lote (24/11): placa " + f.querySelector('[name="placa"]:checked').value);
+      dados.append("entry.666319164", f.elements["entry.666319164"].value);
+      var botao = f.querySelector("button"); botao.disabled = true; botao.textContent = "Mandando…";
+      fetch(URL_FORM, { method: "POST", mode: "no-cors", body: dados }).then(function () {
+        f.hidden = true; ok.hidden = false;
+      }).catch(function () {
+        botao.disabled = false; botao.textContent = "Quero entrar no lote";
+        erro.textContent = "Não foi. Confere a internet e tenta de novo.";
+        erro.hidden = false;
+      });
+    });
+  })();
+  </script>
 
   <p class="miudo"><a href="../">← Piloto no Trator: a lista de peças grátis e o grupo</a></p>
 
